@@ -1,22 +1,16 @@
 import "./App.css";
 import {
-  Container,
-  
-  
-  Segment,
-  Grid,
-  Icon,
-  
-  
+  Container, 
 } from "semantic-ui-react";
 import MainHeader from './components/MainHeader'
 import NewEntryForm from './components/NewEntryForm'
 import DisplayBalance from './components/DisplayBalance'
 import DisplayBalances from "./components/DisplayBalances";
+import EntryLine from "./components/EntryLine";
 function App() {
   return (
     <Container>
-      {/* <Header as="h1">Budget</Header> */}
+      
       <MainHeader title="Budget" type="h1" />
       <DisplayBalance
         title="Your balance"
@@ -24,61 +18,16 @@ function App() {
         color="Green"
         size="small"
       />
-      <DisplayBalances/>
+      <DisplayBalances />
 
-      {/* <Header as="h3">History</Header> */}
+      
       <MainHeader title="History" type="h3" />
 
-      <Segment color="red">
-        <Grid columns={3} textAlign="right">
-          <Grid.Row>
-            <Grid.Column width={10} textAlign="left">
-              Something
-            </Grid.Column>
-            <Grid.Column width={3} textAlign="right">
-              $10
-            </Grid.Column>
-            <Grid.Column width={3}>
-              <Icon name="edit" bordered />
-              <Icon name="trash" bordered />
-            </Grid.Column>
-          </Grid.Row>
-        </Grid>
-      </Segment>
-      <Segment color="green">
-        <Grid columns={3} textAlign="right">
-          <Grid.Row>
-            <Grid.Column width={10} textAlign="left">
-              Something
-            </Grid.Column>
-            <Grid.Column width={3} textAlign="right">
-              $10
-            </Grid.Column>
-            <Grid.Column width={3}>
-              <Icon name="edit" bordered />
-              <Icon name="trash" bordered />
-            </Grid.Column>
-          </Grid.Row>
-        </Grid>
-      </Segment>
-      <Segment color="red">
-        <Grid columns={3} textAlign="right">
-          <Grid.Row>
-            <Grid.Column width={10} textAlign="left">
-              Something
-            </Grid.Column>
-            <Grid.Column width={3} textAlign="right">
-              $10
-            </Grid.Column>
-            <Grid.Column width={3}>
-              <Icon name="edit" bordered />
-              <Icon name="trash" bordered />
-            </Grid.Column>
-          </Grid.Row>
-        </Grid>
-      </Segment>
+      
 
-      {/* <Header as="h3">Add new transaction</Header> */}
+      <EntryLine description="Something" value="$10" />
+      <EntryLine description="Expense" value="$10" isExpense />
+     
       <MainHeader title="Add new transaction" type="h3" />
       <NewEntryForm />
     </Container>
