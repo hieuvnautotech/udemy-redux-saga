@@ -10,7 +10,7 @@ import {
   Button,
 } from "semantic-ui-react";
 import MainHeader from './components/MainHeader'
-import ButtonOkOrCancel from './components/ButtonOkOrCancel'
+import NewEntryForm from './components/NewEntryForm'
 function App() {
   return (
     <Container>
@@ -97,30 +97,8 @@ function App() {
 
       {/* <Header as="h3">Add new transaction</Header> */}
       <MainHeader title="Add new transaction" type="h3" />
-
-      <Form unstackable>
-        <Form.Group>
-          <Form.Input
-            icon="tags"
-            placeholder="New shinny thing"
-            width={12}
-            label="Description"
-          />
-          <Form.Input
-            width={4}
-            label="Value"
-            placeholder="100"
-            icon="dollar"
-            iconPosition="left"
-          />
-        </Form.Group>
-        {/* <Button.Group style={{ marginTop: 20 }}>
-          <Button>Cancel</Button>
-          <Button.Or></Button.Or>
-          <Button primary>OK</Button>
-        </Button.Group> */}
-        <ButtonOkOrCancel/>
-      </Form>
+      <NewEntryForm/>
+      
     </Container>
   );
 }
