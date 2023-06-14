@@ -9,7 +9,8 @@ import {
   Form,
   Button,
 } from "semantic-ui-react";
-import MainHeader  from './components/MainHeader'
+import MainHeader from './components/MainHeader'
+import ButtonOkOrCancel from './components/ButtonOkOrCancel'
 function App() {
   return (
     <Container>
@@ -113,11 +114,12 @@ function App() {
             iconPosition="left"
           />
         </Form.Group>
-        <Button.Group style={{ marginTop: 20 }}>
+        {/* <Button.Group style={{ marginTop: 20 }}>
           <Button>Cancel</Button>
           <Button.Or></Button.Or>
           <Button primary>OK</Button>
-        </Button.Group>
+        </Button.Group> */}
+        <ButtonOkOrCancel/>
       </Form>
     </Container>
   );
