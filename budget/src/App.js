@@ -11,33 +11,31 @@ import {
 } from "semantic-ui-react";
 import MainHeader from './components/MainHeader'
 import NewEntryForm from './components/NewEntryForm'
+import DisplayBalance from './components/DisplayBalance'
 function App() {
   return (
     <Container>
       {/* <Header as="h1">Budget</Header> */}
       <MainHeader title="Budget" type="h1" />
-      <Statistic size="small">
-        <Statistic.Label>Your Balance</Statistic.Label>
-        <Statistic.Value>2,55.53</Statistic.Value>
-      </Statistic>
+      <DisplayBalance
+        title="Your balance"
+        value="123123"
+        color="Green"
+        size="small"
+      />
       <Segment textAlign="center">
         <Grid columns={2} divided>
           <Grid.Row>
             <Grid.Column>
-              <Statistic size="tiny" color="green">
-                <Statistic.Label style={{ texAlign: "left" }}>
-                  Income
-                </Statistic.Label>
-                <Statistic.Value>2,55.53</Statistic.Value>
-              </Statistic>
+              <DisplayBalance title="Income" value="11111" size="tiny" color="green"/>
             </Grid.Column>
             <Grid.Column>
-              <Statistic size="tiny" color="red">
-                <Statistic.Label style={{ texAlign: "left" }}>
-                  Expenses
-                </Statistic.Label>
-                <Statistic.Value>2,55.53</Statistic.Value>
-              </Statistic>
+              <DisplayBalance
+                title="Expense"
+                value="22222"
+                color="red"
+                size="tiny"
+              />
             </Grid.Column>
           </Grid.Row>
         </Grid>
@@ -97,8 +95,7 @@ function App() {
 
       {/* <Header as="h3">Add new transaction</Header> */}
       <MainHeader title="Add new transaction" type="h3" />
-      <NewEntryForm/>
-      
+      <NewEntryForm />
     </Container>
   );
 }
