@@ -36,21 +36,25 @@ export default App;
 
 var initialEntries = [
   {
+    id:1,
     description: "work income",
     value: "$1500",
     isExpense: false,
   },
   {
+    id:2,
     description: "water bill",
     value: "$100",
     isExpense: true,
   },
   {
+    id:3,
     description: "Rent",
     value: "$500",
     isExpense: true,
   },
   {
+    id:4,
     description: "Powre bill",
     value: "$50",
     isExpense: true,
