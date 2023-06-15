@@ -2,7 +2,7 @@ import React from 'react'
 import { Segment, Grid, Icon} from 'semantic-ui-react'
 function EntryLine({ id, description, value, isExpense = false, deleteEntry }) {
             
-              console.log(`id`, id);
+             
             
   
   return (
