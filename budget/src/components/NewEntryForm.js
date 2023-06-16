@@ -1,10 +1,12 @@
 import React, { useState} from 'react'
-import { Form } from 'semantic-ui-react'
+import { Form, Segment, Checkbox } from 'semantic-ui-react'
 import ButtonOkOrCancel from './ButtonOkOrCancel';
+
 
 function NewEntryForm({ addEntry }) {
   const [description, setDescription] = useState("");
   const [value, setValue] = useState("");
+  const [isExpense, setIsExpense] = useState(false);
   return (
     <Form unstackable>
       <Form.Group>
@@ -31,10 +33,19 @@ function NewEntryForm({ addEntry }) {
           <Button.Or></Button.Or>
           <Button primary>OK</Button>
         </Button.Group> */}
+      <Segment compact>
+        <Checkbox
+          checked={isExpense}
+          toggle
+          label="is Expense"
+          onChange={() => setIsExpense((oldState) => !oldState)}
+        />
+      </Segment>
       <ButtonOkOrCancel
         addEntry={addEntry}
         description={description}
         value={value}
+        isExpense={isExpense}
       />
     </Form>
   );

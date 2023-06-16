@@ -16,15 +16,16 @@ function App() {
     setEntries(result);
   }
 
-  function addEntry(description, value) { 
+  function addEntry(description, value, isExpense) {
     const result = entries.concat({
       id: entries.length + 1,
       description,
       value,
-    })
-    console.log(`result`,result)
+      isExpense,
+    });
+    console.log(`result`, result);
     console.log(`entries`, entries);
-    setEntries(result)
+    setEntries(result);
   }
 
   return (
