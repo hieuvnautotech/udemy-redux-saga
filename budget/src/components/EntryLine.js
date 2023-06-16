@@ -26,7 +26,7 @@ function EntryLine({ id, description, value, isExpense = false, deleteEntry }) {
         </Grid>
       </Segment>
 
-      <ModalEdit isOpen={isOpen}/>
+      <ModalEdit isOpen={isOpen} setIsOpen={setIsOpen}/>
     </Container>
   );
 }
