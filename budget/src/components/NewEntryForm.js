@@ -1,8 +1,10 @@
-import React from 'react'
+import React, { useState} from 'react'
 import { Form } from 'semantic-ui-react'
 import ButtonOkOrCancel from './ButtonOkOrCancel';
 
-function NewEntryForm() {
+function NewEntryForm({ addEntry }) {
+  const [description, setDescription] = useState("");
+  const [value, setValue] = useState("");
   return (
     <Form unstackable>
       <Form.Group>
@@ -11,6 +13,8 @@ function NewEntryForm() {
           placeholder="New shinny thing"
           width={12}
           label="Description"
+          value={description}
+          onChange={(event) => setDescription(event.target.value)}
         />
         <Form.Input
           width={4}
@@ -18,6 +22,8 @@ function NewEntryForm() {
           placeholder="100"
           icon="dollar"
           iconPosition="left"
+          value={value}
+          onChange={(event) => setValue(event.target.value)}
         />
       </Form.Group>
       {/* <Button.Group style={{ marginTop: 20 }}>
@@ -25,7 +31,11 @@ function NewEntryForm() {
           <Button.Or></Button.Or>
           <Button primary>OK</Button>
         </Button.Group> */}
-      <ButtonOkOrCancel />
+      <ButtonOkOrCancel
+        addEntry={addEntry}
+        description={description}
+        value={value}
+      />
     </Form>
   );
 }
