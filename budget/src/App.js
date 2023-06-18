@@ -35,6 +35,13 @@ function App() {
     setEntries(result);
   }
 
+  function ediEntry(id){
+    console.log(`edit entry ${id}`)
+    if(id){
+      setIsOpen(true);
+    }
+  }
+
   return (
     <Container>
       <MainHeader title="Budget" type="h1" />
@@ -48,7 +55,12 @@ function App() {
 
       <MainHeader title="History" type="h3" />
 
-      <EntryLines entries={entries} deleteEntry={deleteEntry} setIsOpen={setIsOpen} />
+      <EntryLines 
+      entries={entries} 
+      deleteEntry={deleteEntry} 
+      setIsOpen={setIsOpen} 
+      ediEntry={ediEntry}
+      />
 
       <MainHeader title="Add new transaction" type="h3" />
       <NewEntryForm 
