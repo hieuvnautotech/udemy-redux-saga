@@ -19,6 +19,7 @@ function ModalEdit({ isOpen, setIsOpen, description, setDescription, value, setV
           </Modal.Content>
           <Modal.Actions>
               <Button onClick={()=>setIsOpen(false)}>Close</Button>
+              <Button onClick={()=>setIsOpen(false)} primary>OK</Button>
           </Modal.Actions>
     </Modal>
   )
