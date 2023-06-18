@@ -38,6 +38,13 @@ function App() {
   function ediEntry(id){
     console.log(`edit entry ${id}`)
     if(id){
+      const index = entries.findIndex(entry => entry.id === id)
+      const entry = entries[index];
+      setDescription(entry.description)
+      setValue(entry.value)
+      setIsExpense(entry.isExpense)
+      setIsOpen(true)
+       
       setIsOpen(true);
     }
   }
@@ -58,7 +65,7 @@ function App() {
       <EntryLines 
       entries={entries} 
       deleteEntry={deleteEntry} 
-      setIsOpen={setIsOpen} 
+      // setIsOpen={setIsOpen} 
       ediEntry={ediEntry}
       />
 
@@ -70,9 +77,18 @@ function App() {
         value={value}
         setValue={setValue}
         isExpense={isExpense}
-        setIsExpense={setIsExpense}/>
+        setIsExpense={setIsExpense}
+        />
       
-      <ModalEdit isOpen={isOpen} setIsOpen={setIsOpen}/>
+      <ModalEdit isOpen={isOpen} setIsOpen={setIsOpen}
+      addEntry={addEntry} 
+      description={description}
+      setDescription={setDescription}
+      value={value}
+      setValue={setValue}
+      isExpense={isExpense}
+      setIsExpense={setIsExpense}
+      />
     </Container>
   );
 }

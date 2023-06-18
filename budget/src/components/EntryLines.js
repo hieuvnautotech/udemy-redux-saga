@@ -11,7 +11,7 @@ function EntryLines({ entries, deleteEntry, ediEntry}) {
             // entry={entry} có cách viết khác dòng dưới
             {...entry} 
             deleteEntry={deleteEntry}
-            setIsOpen={ediEntry}
+            ediEntry={ediEntry}
       />
         ))}
     </Container>
