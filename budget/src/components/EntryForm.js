@@ -29,12 +29,6 @@ function EntryForm({
           onChange={(event) => setValue(event.target.value)}
         />
       </Form.Group>
-      
-      {/* <Button.Group style={{ marginTop: 20 }}>
-          <Button>Cancel</Button>
-          <Button.Or></Button.Or>
-          <Button primary>OK</Button>
-        </Button.Group> */}
       <Segment compact>
         <Checkbox
           checked={isExpense}

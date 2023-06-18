@@ -4,7 +4,6 @@ import MainHeader from "./components/MainHeader";
 import NewEntryForm from "./components/NewEntryForm";
 import DisplayBalance from "./components/DisplayBalance";
 import DisplayBalances from "./components/DisplayBalances";
-import EntryLine from "./components/EntryLine";
 import { useState, useEffect } from "react";
 import EntryLines from "./components/EntryLines";
 import ModalEdit from './components/ModalEdit'
@@ -59,7 +58,7 @@ function App() {
       setIsExpense(entry.isExpense)
       setIsOpen(true)
        
-      setIsOpen(true);
+      
     }
   }
 
