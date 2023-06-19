@@ -28,7 +28,23 @@ function App() {
       setEntries(newEntries)
       resetEntry()
     }
-  },[isOpen]);
+  }, [isOpen]);
+  
+  useEffect(() => {
+    let totalIncome = 0
+    let totalExpenses = 0
+    entries.map(entry => { 
+      if (entry.isExpense) {
+        return totalExpenses += entry.value
+      } else { 
+        return totalIncome += entry.value;
+      }
+    })
+    let total = totalIncome - totalExpenses
+    console.log(
+      `total income: ${totalIncome} and total expense : ${totalExpenses}`
+    );
+  },entries)
 
 
   function deleteEntry(id) { 
@@ -120,25 +136,25 @@ var initialEntries = [
   {
     id:1,
     description: "work income",
-    value: "$1500",
+    value: "1500",
     isExpense: false,
   },
   {
     id:2,
     description: "water bill",
-    value: "$100",
+    value: "100",
     isExpense: true,
   },
   {
     id:3,
     description: "Rent",
-    value: "$500",
+    value: "500",
     isExpense: true,
   },
   {
     id:4,
     description: "Powre bill",
-    value: "$50",
+    value: "50",
     isExpense: true,
   },
 ];
