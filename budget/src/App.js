@@ -1,4 +1,4 @@
-import "./App.css";
+
 import { Container } from "semantic-ui-react";
 import MainHeader from "./components/MainHeader";
 import NewEntryForm from "./components/NewEntryForm";
