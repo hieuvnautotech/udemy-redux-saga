@@ -16,7 +16,11 @@ function App() {
   const [isExpense, setIsExpense] = useState(false);
   const [entries, setEntries] = useState(initialEntries);
   const [isOpen, setIsOpen] = useState(false)         
-  const [entryId, setEntryId] = useState()         
+  const [entryId, setEntryId] = useState()    
+  const [incomeTotal, setIncomeTotal] = useState(0);
+  const [expenseTotal, setExpenseTotal] = useState(0)
+  const [total, setTotal] = useState(0)
+
 
   useEffect(() => {
     if(!isOpen && entryId){
@@ -35,16 +39,15 @@ function App() {
     let totalExpenses = 0
     entries.map(entry => { 
       if (entry.isExpense) {
-        return totalExpenses += entry.value
+        return (totalExpenses += Number(entry.value))
       } else { 
-        return totalIncome += entry.value;
+        return (totalIncome += Number(entry.value))
       }
     })
-    let total = totalIncome - totalExpenses
-    console.log(
-      `total income: ${totalIncome} and total expense : ${totalExpenses}`
-    );
-  },entries)
+    setTotal (totalIncome - totalExpenses)
+    setExpenseTotal(totalExpenses)
+    setIncomeTotal(totalIncome)
+  },[entries])
 
 
   function deleteEntry(id) { 
@@ -91,40 +94,42 @@ function App() {
       <MainHeader title="Budget" type="h1" />
       <DisplayBalance
         title="Your balance"
-        value="123123"
+        value={total}
         color="Green"
         size="small"
       />
-      <DisplayBalances />
+      <DisplayBalances expenseTotal={expenseTotal} incomeTotal={ incomeTotal} />
 
       <MainHeader title="History" type="h3" />
 
-      <EntryLines 
-      entries={entries} 
-      deleteEntry={deleteEntry} 
-      // setIsOpen={setIsOpen} 
-      ediEntry={ediEntry}
+      <EntryLines
+        entries={entries}
+        deleteEntry={deleteEntry}
+        // setIsOpen={setIsOpen}
+        ediEntry={ediEntry}
       />
 
       <MainHeader title="Add new transaction" type="h3" />
-      <NewEntryForm 
-        addEntry={addEntry} 
+      <NewEntryForm
+        addEntry={addEntry}
         description={description}
         setDescription={setDescription}
         value={value}
         setValue={setValue}
         isExpense={isExpense}
         setIsExpense={setIsExpense}
-        />
-      
-      <ModalEdit isOpen={isOpen} setIsOpen={setIsOpen}
-      addEntry={addEntry} 
-      description={description}
-      setDescription={setDescription}
-      value={value}
-      setValue={setValue}
-      isExpense={isExpense}
-      setIsExpense={setIsExpense}
+      />
+
+      <ModalEdit
+        isOpen={isOpen}
+        setIsOpen={setIsOpen}
+        addEntry={addEntry}
+        description={description}
+        setDescription={setDescription}
+        value={value}
+        setValue={setValue}
+        isExpense={isExpense}
+        setIsExpense={setIsExpense}
       />
     </Container>
   );
