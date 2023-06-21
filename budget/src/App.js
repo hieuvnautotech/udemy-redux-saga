@@ -95,7 +95,7 @@ function App() {
       <DisplayBalance
         title="Your balance"
         value={total}
-        color="Green"
+        color="green"
         size="small"
       />
       <DisplayBalances expenseTotal={expenseTotal} incomeTotal={ incomeTotal} />
