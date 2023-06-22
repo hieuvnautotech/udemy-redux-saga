@@ -42,9 +42,7 @@ function App() {
       const entry = entries[index];
       setDescription(entry.description)
       setValue(entry.value)
-      setIsExpense(entry.isExpense)
-      setIsOpen(true)
-       
+      setIsExpense(entry.isExpense) 
       setIsOpen(true);
     }
   }
