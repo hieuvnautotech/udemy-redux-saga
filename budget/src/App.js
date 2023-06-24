@@ -35,10 +35,13 @@ function App() {
     }
   }, [isOpen]);
 
-  const store = createStore((state = initialEntries) => {
+  const store = createStore((state = initialEntries, action) => {
+    console.log(action)
     return state})
   
   console.log(`store`, store.getState())
+
+  store.dispatch({type:'ADD_ENTRY'})
   
   useEffect(() => {
     let totalIncome = 0
