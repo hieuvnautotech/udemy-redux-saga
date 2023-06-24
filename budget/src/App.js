@@ -7,6 +7,7 @@ import DisplayBalances from "./components/DisplayBalances";
 import { useState, useEffect } from "react";
 import EntryLines from "./components/EntryLines";
 import ModalEdit from './components/ModalEdit'
+import {createStore} from 'redux'
 
 
 function App() {
@@ -33,6 +34,11 @@ function App() {
       resetEntry()
     }
   }, [isOpen]);
+
+  const store = createStore((state = initialEntries) => {
+    return state})
+  
+  console.log(`store`, store.getState())
   
   useEffect(() => {
     let totalIncome = 0
