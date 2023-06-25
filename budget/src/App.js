@@ -39,15 +39,19 @@ function App() {
     console.log(action)
     switch (action.type){
       case 'ADD_ENTRY' : 
-      const newEntries = entries.concat({...action.payload})
+      const newEntries = state.concat({...action.payload})
       return newEntries
-      break
+
       default:
       return state
     }
     return state})
+
+    store.subscribe(() => {
+      console.log('store:',store.getState())
+    })
   
-  console.log(`store before`, store.getState())
+  // console.log(`store before`, store.getState())
 
   const payload = {
     id: 5,
@@ -57,8 +61,9 @@ function App() {
   };
 
   store.dispatch({type:'ADD_ENTRY', payload})
+  store.dispatch({type:'ADD_ENTRY', payload})
   
-  console.log(`store after`, store.getState())
+  // console.log(`store after`, store.getState())
 
   useEffect(() => {
     let totalIncome = 0
