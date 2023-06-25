@@ -37,12 +37,27 @@ function App() {
 
   const store = createStore((state = initialEntries, action) => {
     console.log(action)
+    switch (action.type){
+      case 'ADD_ENTRY' : 
+      const newEntries = entries.concat({
+        id:5,
+        description: 'hello redux',
+        value:100,
+        isExpense: false,
+      })
+      return newEntries
+      break
+      default:
+      return state
+    }
     return state})
   
-  console.log(`store`, store.getState())
+  console.log(`store before`, store.getState())
 
   store.dispatch({type:'ADD_ENTRY'})
   
+  console.log(`store after`, store.getState())
+
   useEffect(() => {
     let totalIncome = 0
     let totalExpenses = 0
