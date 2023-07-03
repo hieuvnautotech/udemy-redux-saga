@@ -35,7 +35,7 @@ function App() {
     }
   }, [isOpen]);
 
-  const store = createStore((state = initialEntries, action) => {
+  function entriesReducer(state=initialEntries, action) {
     console.log(action)
     let newEntries
     switch (action.type){
@@ -50,7 +50,11 @@ function App() {
       default:
       return state
     }
-    return state})
+    
+  }
+
+    
+  const store = createStore(entriesReducer)
 
     store.subscribe(() => {
       console.log('store:',store.getState())
