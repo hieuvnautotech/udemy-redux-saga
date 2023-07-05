@@ -19,13 +19,13 @@ export default reducer
   var initialEntries = [
     {
       id:1,
-      description: "work income redux",
+      description: "work income",
       value: "1500",
       isExpense: false,
     },
     {
       id:2,
-      description: "water bill redux",
+      description: "water bill",
       value: "100",
       isExpense: true,
     },
@@ -37,7 +37,7 @@ export default reducer
     },
     {
       id:4,
-      description: "Powre bill redux",
+      description: "Powre bill",
       value: "50",
       isExpense: true,
     },
