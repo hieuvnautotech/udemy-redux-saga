@@ -12,10 +12,8 @@ import {useSelector} from 'react-redux'
 
 function App() {
 
-  const [description, setDescription] = useState("");
-  const [value, setValue] = useState("");
-  const [isExpense, setIsExpense] = useState(false);
-  // const [entries, setEntries] = useState(initialEntries);
+  
+  
   const [isOpen, setIsOpen] = useState(false)         
   const [entryId, setEntryId] = useState()    
   const [incomeTotal, setIncomeTotal] = useState(0);
@@ -57,10 +55,7 @@ function App() {
   },[entries])
 
 
-  function deleteEntry(id) { 
-    const result = entries.filter(entry => entry.id !== id)
-    // setEntries(result);
-  }
+  
 
   function addEntry() {
     const result = entries.concat({
