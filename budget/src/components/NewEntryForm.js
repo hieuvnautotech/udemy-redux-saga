@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import { Form} from 'semantic-ui-react'
 import ButtonOkOrCancel from './ButtonOkOrCancel';
 import EntryForm from './EntryForm';
@@ -20,6 +20,9 @@ function NewEntryForm() {
       value,
       isExpense
     }))
+    setDescription('')
+    setValue('')
+    setIsExpense(true)
   }
   
   return (
