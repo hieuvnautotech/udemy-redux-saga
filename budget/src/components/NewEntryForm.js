@@ -4,6 +4,7 @@ import ButtonOkOrCancel from './ButtonOkOrCancel';
 import EntryForm from './EntryForm';
 import { useDispatch } from 'react-redux'
 import { addEntryRedux } from '../actions/entries.actions';
+import {v4 as uuidv4} from 'uuid'
 
 
 
@@ -15,7 +16,7 @@ function NewEntryForm() {
 
   function addEntry() { 
     dispatch(addEntryRedux({
-      id: 5,
+      id: uuidv4(),
       description,
       value,
       isExpense
