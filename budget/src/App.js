@@ -1,4 +1,3 @@
-
 import { Container } from "semantic-ui-react";
 import MainHeader from "./components/MainHeader";
 import NewEntryForm from "./components/NewEntryForm";
@@ -6,59 +5,51 @@ import DisplayBalance from "./components/DisplayBalance";
 import DisplayBalances from "./components/DisplayBalances";
 import { useState, useEffect } from "react";
 import EntryLines from "./components/EntryLines";
-import ModalEdit from './components/ModalEdit'
-import {useSelector} from 'react-redux'
-
+import ModalEdit from "./components/ModalEdit";
+import { useSelector } from "react-redux";
 
 function App() {
-
   const [description, setDescription] = useState("");
   const [value, setValue] = useState("");
   const [isExpense, setIsExpense] = useState(false);
   // const [entries, setEntries] = useState(initialEntries);
-  const [isOpen, setIsOpen] = useState(false)         
-  const [entryId, setEntryId] = useState()    
+  const [isOpen, setIsOpen] = useState(false);
+  const [entryId, setEntryId] = useState();
   const [incomeTotal, setIncomeTotal] = useState(0);
-  const [expenseTotal, setExpenseTotal] = useState(0)
-  const [total, setTotal] = useState(0)
-  const entries = useSelector((state) => state.entries)
+  const [expenseTotal, setExpenseTotal] = useState(0);
+  const [total, setTotal] = useState(0);
+  const entries = useSelector((state) => state.entries);
+  const isOpenRedux = useSelector((state) => state.modals.isOpen);
 
   useEffect(() => {
-    if(!isOpen && entryId){
-      const index = entries.findIndex(entry => entry.id === entryId)
-      const newEntries = [...entries]
-      newEntries[index].description = description
-      newEntries[index].value = value
-      newEntries[index].isExpense = isExpense
+    if (!isOpen && entryId) {
+      const index = entries.findIndex((entry) => entry.id === entryId);
+      const newEntries = [...entries];
+      newEntries[index].description = description;
+      newEntries[index].value = value;
+      newEntries[index].isExpense = isExpense;
       // setEntries(newEntries)
-      resetEntry()
+      resetEntry();
     }
   }, [isOpen]);
 
-  
-
-  
-
-    
-
   useEffect(() => {
-    let totalIncome = 0
-    let totalExpenses = 0
-    entries.map(entry => { 
+    let totalIncome = 0;
+    let totalExpenses = 0;
+    entries.map((entry) => {
       if (entry.isExpense) {
-        return (totalExpenses += Number(entry.value))
-      } else { 
-        return (totalIncome += Number(entry.value))
+        return (totalExpenses += Number(entry.value));
+      } else {
+        return (totalIncome += Number(entry.value));
       }
-    })
-    setTotal (totalIncome - totalExpenses)
-    setExpenseTotal(totalExpenses)
-    setIncomeTotal(totalIncome)
-  },[entries])
+    });
+    setTotal(totalIncome - totalExpenses);
+    setExpenseTotal(totalExpenses);
+    setIncomeTotal(totalIncome);
+  }, [entries]);
 
-
-  function deleteEntry(id) { 
-    const result = entries.filter(entry => entry.id !== id)
+  function deleteEntry(id) {
+    const result = entries.filter((entry) => entry.id !== id);
     // setEntries(result);
   }
 
@@ -72,28 +63,26 @@ function App() {
     console.log(`result`, result);
     console.log(`entries`, entries);
     //setEntries(result);
-    resetEntry()
+    resetEntry();
   }
 
-  function ediEntry(id){
-    console.log(`edit entry ${id}`)
-    if(id){
-      const index = entries.findIndex(entry => entry.id === id)
+  function ediEntry(id) {
+    console.log(`edit entry ${id}`);
+    if (id) {
+      const index = entries.findIndex((entry) => entry.id === id);
       const entry = entries[index];
-      setEntryId(id)
-      setDescription(entry.description)
-      setValue(entry.value)
-      setIsExpense(entry.isExpense)
-      setIsOpen(true)
-       
-      
+      setEntryId(id);
+      setDescription(entry.description);
+      setValue(entry.value);
+      setIsExpense(entry.isExpense);
+      setIsOpen(true);
     }
   }
 
-  function resetEntry(){
-    setDescription('')
-      setValue('')
-      setIsExpense(true)
+  function resetEntry() {
+    setDescription("");
+    setValue("");
+    setIsExpense(true);
   }
 
   return (
@@ -105,7 +94,7 @@ function App() {
         color="green"
         size="small"
       />
-      <DisplayBalances expenseTotal={expenseTotal} incomeTotal={ incomeTotal} />
+      <DisplayBalances expenseTotal={expenseTotal} incomeTotal={incomeTotal} />
 
       <MainHeader title="History" type="h3" />
 
@@ -128,7 +117,7 @@ function App() {
       />
 
       <ModalEdit
-        isOpen={isOpen}
+        isOpen={isOpenRedux}
         setIsOpen={setIsOpen}
         addEntry={addEntry}
         description={description}
