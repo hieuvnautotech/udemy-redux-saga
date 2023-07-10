@@ -6,12 +6,14 @@ import {closeEditModal} from '../actions/modals.actions'
 
 function ModalEdit({ 
   isOpen, 
-  setIsOpen, 
   description, 
-  setDescription, 
-  value, setValue, 
+  value, 
   isExpense, 
-  setIsExpense}) {
+  setDescription,
+  setValue,
+  setIsExpense,
+  setIsOpen
+  }) {
   
   const dispatch = useDispatch()
   return (
@@ -30,7 +32,7 @@ function ModalEdit({
           </Modal.Content>
           <Modal.Actions>
               <Button onClick={()=>dispatch(closeEditModal())}>Close</Button>
-              <Button onClick={()=>setIsOpen(false)} primary>OK</Button>
+              <Button onClick={()=>dispatch(closeEditModal())} primary>OK</Button>
           </Modal.Actions>
     </Modal>
   )
