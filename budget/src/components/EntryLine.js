@@ -8,6 +8,7 @@ function EntryLine({ id, description, value, isExpense = false}) {
              
             
   const dispatch = useDispatch()
+  dispatch({type: 'TEST_MESSAGE'})
   return (
     <Container>
       <Segment color={isExpense ? "red" : "green"}>
