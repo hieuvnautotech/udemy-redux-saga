@@ -1,5 +1,7 @@
 import {take, put, delay} from 'redux-saga/effects'
 
+
+
 export function* testSaga(){
     while(1){
         console.log("Starting saga")
@@ -11,7 +13,7 @@ export function* testSaga(){
 
 export function* dispatchTest(){
     while (1) {
-       yield delay(1000)
+       yield delay(10000)
        yield put({type: 'TEST_MESSAGE', payload:1000})
     }
 }
