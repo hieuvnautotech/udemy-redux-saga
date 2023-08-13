@@ -13,7 +13,7 @@ export function* testSaga(){
 
 export function* dispatchTest(){
     while (1) {
-       yield delay(10000)
+       yield delay(1000)
        yield put({type: 'TEST_MESSAGE', payload:1000})
     }
 }
