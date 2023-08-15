@@ -7,6 +7,7 @@ import { useState, useEffect } from "react";
 import EntryLines from "./components/EntryLines";
 import ModalEdit from "./components/ModalEdit";
 import { useSelector } from "react-redux";
+import axios from 'axios'
 
 function App() {
   
@@ -44,9 +45,12 @@ function App() {
 
   
 
-  
+  async function fetchInitialData(){
+    const result = await axios.get('http://localhost:3002/entries')
+    console.log(result)
+  }
 
-  
+  useEffect(() => {fetchInitialData()},[])
 
   return (
     <Container>
