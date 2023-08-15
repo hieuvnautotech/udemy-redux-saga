@@ -4,6 +4,8 @@ const reducer = (state=initialEntries, action) => {
     console.log(action)
     let newEntries
     switch (action.type){
+      case entriesTypes.POPULATE_ENTRIES:
+        return action.payload
       case entriesTypes.ADD_ENTRY : 
       newEntries = state.concat({...action.payload})
       return newEntries
