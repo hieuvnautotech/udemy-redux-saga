@@ -10,6 +10,8 @@ const reducer = (state=initialEntries, action) => {
       newEntries = state.concat({...action.payload})
       return newEntries
 
+      case entriesTypes.POPULATE_ENTRY_DETAILS
+
       case entriesTypes.REMOVE_ENTRY :
       newEntries = state.filter(entry => entry.id !== action.payload.id)
       return newEntries
