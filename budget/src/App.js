@@ -54,7 +54,7 @@ function App() {
   useEffect(() => {
     // fetchInitialData()
     dispatch(getAllEntries())
-  },[])
+  },[dispatch])
 
   return (
     <Container>
