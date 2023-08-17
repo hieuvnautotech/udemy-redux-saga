@@ -10,16 +10,18 @@ const reducer = (state=initialEntries, action) => {
       newEntries = state.concat({...action.payload})
       return newEntries
 
-      case entriesTypes.POPULATE_ENTRY_DETAILS
-
       case entriesTypes.REMOVE_ENTRY :
       newEntries = state.filter(entry => entry.id !== action.payload.id)
       return newEntries
 
+      case entriesTypes.POPULATE_ENTRY_DETAILS:
+
+
       case entriesTypes.UPDATE_ENTRY :
+      console.log('a->', action)
       newEntries = [...state]
       const index = newEntries.findIndex(entry => entry.id === action.payload.id)
-      newEntries[index] = {...action.payload.entry}
+      newEntries[index] = {...newEntries[index], ...action.payload.entry}
       return newEntries
 
       default:
