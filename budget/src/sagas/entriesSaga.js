@@ -4,20 +4,25 @@ import axios from 'axios'
 import types from '../actions/entries.actions'
 import {populateEntries, populateEntryDetails} from '../actions/entries.actions'
 
-
+ 
 export function* getAllEntries(){
     yield take(entriesTypes.GET_ENTRIES)
     console.log('entries saga')
     const {data} = yield call (axios, 'http://localhost:3002/entries')
-    console.log(data)
-    // yield put(populateEntries(data))
+    // const result = yield call (axios, 'http://localhost:3002/entries')
+    // console.log(result)
+    yield put(populateEntries(data))
+    // yield put({type: types.POPULATE_ENTRIES, payload: result.data})
+
 }
 
 export function* getEntryDetails(id){
     // console.log(`got the id ${id}`)
     const {data} = yield call (axios, `http://localhost:3002/values/${id}`)
     console.log(data)
-    // yield put(populateEntryDetails(id, data))
+    yield put(populateEntryDetails(id, data))
+    // yield put({type: entriesTypes.POPULATE_ENTRY_DETAILS, payload: {id, entry:data}})
+
 }
 
 export function* getAllEntriesDetails(){

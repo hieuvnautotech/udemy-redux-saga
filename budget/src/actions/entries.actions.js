@@ -31,7 +31,7 @@ export const addEntryRedux = (payload) => {
   }
 
   export const populateEntries = (entries) => {
-    return {type: types.POPULATE_ENTRIES, payload: {entries}}
+    return {type: types.POPULATE_ENTRIES, payload: entries}
   }
   
   export const populateEntryDetails = (id, entry) => {
