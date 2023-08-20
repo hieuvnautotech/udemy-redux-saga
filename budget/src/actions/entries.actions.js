@@ -1,4 +1,4 @@
-import { getEntryDetails } from "../sagas/entriesSaga"
+
 
 const types = {
   GET_ENTRIES: 'GET_ENTRIES',
