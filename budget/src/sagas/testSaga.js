@@ -1,4 +1,4 @@
-import {take, put, delay, call, fork, takeEvery} from 'redux-saga/effects'
+import {take, put, delay, call, fork, takeEvery, cancel, cancelled} from 'redux-saga/effects'
 function double(number){
     return number*2
 }
@@ -18,16 +18,43 @@ export function* testSaga(){
 
 export function* dispatchTest(){
     let index = 0
-    while (1) {
-       yield delay(500)
-       yield put({type: 'TEST_MESSAGE3', payload: index}) // TEST_MESSAGE3 được gọi thì index + lên
-       index++
-    }
+    yield put({type:'TEST_MESSAGE4', payload: index})
+    // while (1) {
+    //    yield delay(500)
+    //    yield put({type: 'TEST_MESSAGE3', payload: index}) // TEST_MESSAGE3 được gọi thì index + lên
+    //    index++
+    // }
 }
 
 export function* testSagaTakeEvery(){
     const{payload} = yield takeEvery('TEST_MESSAGE3', testSagaTakeEveryProcess) // takeEvery này ko có blocking, lắng nghe TEST_MESSAGE3 và gọi testSagaTakeEveryProcess rồi đi
     console.log(`finish take every index ${payload}`) // show cái log finish này ra
+}
+
+export function* infinitySaga(){
+    console.log('starting infinity saga')
+    while(1){
+        try{
+            console.log('inside infinity loop')
+            yield delay(500)
+        }
+        catch(error){
+            console.error('A error happened:', error)
+        }
+
+        finally{
+            console.log('The fork was canceled?', yield cancelled())
+        }
+    }
+    console.log('ending infinity saga')
+}
+
+export function* testSagaCancelled(){
+    yield take('TEST_MESSAGE4')
+    const handleCancel = yield fork(infinitySaga)
+    // yield fork(infinitySaga)
+    yield delay(3000)
+    yield cancel(handleCancel)
 }
 
 export function* testSagaTakeEveryProcess({payload}){
