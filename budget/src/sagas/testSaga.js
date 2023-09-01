@@ -57,12 +57,12 @@ export function* testSagaTakeEvery(){
 
 function* infinitySaga(){
     console.log('starting infinity saga');
-//   let index = 0;
+  let index = 0;
   while (true) {
-    // index++;
+    index++;
     try {
-      console.log(`inside infinity loop `);
-      yield delay(500);
+        console.log(`inside infinity loop ${index}`);
+      yield delay(1000);
     } catch (error) {
       console.error('A error happened:', error);
     } finally {
@@ -81,11 +81,15 @@ export function* testSagaCancelled(){
     
 }
 
+// export function* testSagaTakeLatest() {
+//     yield takeLatest('TEST_MESSAGE_5', infinitySaga);
+//   }
+
 export function* dispatchTest(){
     let index = 0
     // yield put({type:'TEST_MESSAGE_4', payload: index})
     while (true) {
-       yield delay(500)
+       yield delay(5000)
        yield put({type: 'TEST_MESSAGE_4', payload: index}) // TEST_MESSAGE3 được gọi thì index + lên
        index++
     }
