@@ -81,16 +81,16 @@ export function* testSagaCancelled(){
     
 }
 
-// export function* testSagaTakeLatest() {
-//     yield takeLatest('TEST_MESSAGE_5', infinitySaga);
-//   }
+export function* testSagaTakeLatest() {
+    yield takeLatest('TEST_MESSAGE_5', infinitySaga);
+  }
 
 export function* dispatchTest(){
     let index = 0
     // yield put({type:'TEST_MESSAGE_4', payload: index})
     while (true) {
        yield delay(5000)
-       yield put({type: 'TEST_MESSAGE_4', payload: index}) // TEST_MESSAGE3 được gọi thì index + lên
+       yield put({type: 'TEST_MESSAGE_5', payload: index}) // TEST_MESSAGE3 được gọi thì index + lên
        index++
     }
 }
