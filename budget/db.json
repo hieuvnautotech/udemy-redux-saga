@@ -15,6 +15,10 @@
     {
       "id": "b2bb20bc-be6b-4928-b1f4-07cfafdb2b7b",
       "description": "aaa"
+    },
+    {
+      "id": "70145e11-5ae2-43bf-beb0-e44e9f083429",
+      "description": "ccc"
     }
   ],
   "values": [
@@ -37,6 +41,11 @@
       "id": "b2bb20bc-be6b-4928-b1f4-07cfafdb2b7b",
       "isExpense": true,
       "value": "222"
+    },
+    {
+      "id": "70145e11-5ae2-43bf-beb0-e44e9f083429",
+      "isExpense": true,
+      "value": "22"
     }
   ]
 }
