@@ -7,6 +7,14 @@
     {
       "id": 4,
       "description": "Power bill"
+    },
+    {
+      "id": "f161fba9-6a97-4a34-91bb-1d2aa90ae3ad",
+      "description": "sss"
+    },
+    {
+      "id": "b2bb20bc-be6b-4928-b1f4-07cfafdb2b7b",
+      "description": "aaa"
     }
   ],
   "values": [
@@ -19,6 +27,16 @@
       "id": 4,
       "value": "50",
       "isExpense": true
+    },
+    {
+      "id": "f161fba9-6a97-4a34-91bb-1d2aa90ae3ad",
+      "isExpense": true,
+      "value": "111"
+    },
+    {
+      "id": "b2bb20bc-be6b-4928-b1f4-07cfafdb2b7b",
+      "isExpense": true,
+      "value": "222"
     }
   ]
 }
