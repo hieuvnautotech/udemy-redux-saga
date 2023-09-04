@@ -10,7 +10,7 @@ function* addEntryToDb({payload}) {
     console.log('addEntry', payload)
     yield call(addEntry, payload);
     yield call(addEntryDetails, payload);
-    // yield put({ type: entriesTypes.ADD_ENTRY_RESULT, payload });
+    yield put({ type: entriesTypes.ADD_ENTRY_RESULT, payload });
   }
 
   async function addEntry({ id, description }) {
